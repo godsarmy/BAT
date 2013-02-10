@@ -15,11 +15,7 @@ http://twitter.github.com/bootstrap
 * AngularJS 
 http://angularjs.org/
 
-https://github.com/angular/angular.js
-
 * Tornado
 http://www.tornadoweb.org/
-
-https://github.com/facebook/tornado
 
 This project is in MIT license.
