@@ -31,9 +31,10 @@
 
     <div class="container" ng-controller="IndexCtrl">
 
-      <h1>Bootstrap starter template</h1>
+      <h1>BAT starter template</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
 
+      <h4>Examples</h4>
       <!-- must escape {{! to avoid intepreted by tornado template -->
       <ul>
         <li ng-repeat="page in pages">

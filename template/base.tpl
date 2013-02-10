@@ -25,8 +25,8 @@
                     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="static/favicon.ico">
 
+    <!-- jquery js and js for angularJS from github -->
     <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
-    <!-- js for angularJS from github -->
     <script src="http://angular.github.com/angular-phonecat/step-0/app/lib/angular/angular.js"></script>
   </head>
 
