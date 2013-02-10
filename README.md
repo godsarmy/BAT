@@ -8,15 +8,18 @@ How to run test:
 * Run command of "python demo.py"
 * Use browser to access localhost:8888 
 
-Bootstrap: 
+Link
+* Bootstrap 
 http://twitter.github.com/bootstrap
 
-AngularJS: 
+* AngularJS 
 http://angularjs.org/
+
 https://github.com/angular/angular.js
 
-Tornado: 
+* Tornado
 http://www.tornadoweb.org/
+
 https://github.com/facebook/tornado
 
 This project is in MIT license.
