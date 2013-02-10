@@ -1,4 +1,3 @@
-
 {% extends "base.tpl" %}
 
 {% block head %}
@@ -30,10 +29,22 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-controller="IndexCtrl">
 
       <h1>Bootstrap starter template</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
 
+      <!-- must escape {{! to avoid intepreted by tornado template -->
+      <ul>
+        <li ng-repeat="page in pages">
+          <a href="{{!page.url}}">{{!page.name}}</a>
+        </li>
+      </ul>
+
+
     </div> <!-- /container -->
+{% end %}
+
+{% block script %}
+    <script src="static/js/index.js"></script>
 {% end %}

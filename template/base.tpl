@@ -24,6 +24,10 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="static/favicon.ico">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+    <!-- js for angularJS from github -->
+    <script src="http://angular.github.com/angular-phonecat/step-0/app/lib/angular/angular.js"></script>
   </head>
 
   <body ng-app>
@@ -34,7 +38,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster, please change the css url to local relative path -->
-    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
@@ -48,8 +51,6 @@
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
 
-    <!-- js for angularJS from github -->
-    <script src="http://angular.github.com/angular-phonecat/step-0/app/lib/angular/angular.js"></script>
 
     {% block script %}
     {% end %}

@@ -12,9 +12,20 @@ class MainHandler(tornado.web.RequestHandler):
 
 class AjaxHandler(tornado.web.RequestHandler):
     def get(self):
-        data = {
+        type = self.get_argument('type')
+
+        data ={}
+        if type == "hero":
+            data = {
                  "detail" : "This is detail inform."
                }
+        elif type == "index":
+            data = [
+                { "url" : "#",  "name" : "Index" },
+                { "url" : "hero",   "name" : "Hero" },
+                { "url" : "fluid",  "name" : "Fluid" },
+                { "url" : "signin", "name" : "Sign In" },
+            ]
         self.write(json_encode(data))
 
 class SigninHandler(tornado.web.RequestHandler):
