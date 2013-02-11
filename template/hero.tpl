@@ -52,7 +52,8 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.{{!detail}}</p>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p>{{!detail}}</p>
         <p><button class="btn btn-primary btn-large" ng-click="get_detail()">Learn more &raquo;</button></p>
       </div>
 

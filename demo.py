@@ -17,7 +17,7 @@ class AjaxHandler(tornado.web.RequestHandler):
         data ={}
         if type == "hero":
             data = {
-                 "detail" : "This is detail inform."
+                 "detail" : "This is detail inform generated via Ajax call by AngularJS."
                }
         elif type == "index":
             data = [
