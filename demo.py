@@ -11,24 +11,25 @@ class MainHandler(tornado.web.RequestHandler):
                     project_name=self.settings["globals"]["project_name"])
 
 class AjaxHandler(tornado.web.RequestHandler):
-    def get(self):
-        type = self.get_argument('type')
-
-        data ={}
-        if type == "hero":
-            data = {
+    data = {
+        "hero": {
                  "detail" : "This is detail inform generated via Ajax call by AngularJS."
-               }
-        elif type == "index":
-            data = [
-                { "url" : "/",             "name" : "Index" },
-                { "url" : "hero",          "name" : "Hero" },
-                { "url" : "fluid",         "name" : "Fluid" },
-                { "url" : "signin",        "name" : "Sign In" },
-                { "url" : "sticky-footer", "name" : "Sticky-Footer" },
-                { "url" : "sfn",           "name" : "Sticky-Footer Navbar" },
-                { "url" : "justified-nav", "name" : "Justified Navbar" },
-            ]
+                },
+        "index":[
+                  { "url" : "/",             "name" : "Index" },
+                  { "url" : "hero",          "name" : "Hero" },
+                  { "url" : "fluid",         "name" : "Fluid" },
+                  { "url" : "signin",        "name" : "Sign In" },
+                  { "url" : "sticky-footer", "name" : "Sticky-Footer" },
+                  { "url" : "sfn",           "name" : "Sticky-Footer Navbar" },
+                  { "url" : "justified-nav", "name" : "Justified Navbar" },
+                ],
+    }
+
+    def get(self):
+        call_type = self.get_argument('type')
+
+        data = self.data[call_type] 
         self.write(json_encode(data))
 
 class SigninHandler(tornado.web.RequestHandler):
