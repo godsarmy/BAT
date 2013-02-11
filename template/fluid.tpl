@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="FluidCtrl">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
@@ -73,7 +73,8 @@
           <div class="hero-unit">
             <h1>Hello, world!</h1>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <p>{{!detail}}</p>
+            <p><button class="btn btn-primary btn-large" ng-click="get_detail()">Learn more &raquo;</a></p>
           </div>
           <div class="row-fluid">
             <div class="span4">
@@ -121,3 +122,6 @@
     </div><!--/.fluid-container-->
 {% end %}
 
+{% block script %}
+    <script src="static/js/fluid.js"></script>
+{% end %}

@@ -12,9 +12,6 @@ class MainHandler(tornado.web.RequestHandler):
 
 class AjaxHandler(tornado.web.RequestHandler):
     data = {
-        "hero": {
-                 "detail" : "This is detail inform generated via Ajax call by AngularJS."
-                },
         "index":[
                   { "url" : "/",             "name" : "Index" },
                   { "url" : "hero",          "name" : "Hero" },
@@ -30,8 +27,15 @@ class AjaxHandler(tornado.web.RequestHandler):
 
     def get(self):
         call_type = self.get_argument('type')
+        content = self.get_argument('content', [])
 
-        data = self.data[call_type] 
+        data = {}
+        if (content == 'detail'):
+            data = { 
+                 "detail" : ("This is %s detail inform generated via Ajax call by AngularJS." % call_type )
+                 }
+        else:
+            data = self.data[call_type] 
         self.write(json_encode(data))
 
 class SigninHandler(tornado.web.RequestHandler):
