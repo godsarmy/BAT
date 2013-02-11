@@ -1,7 +1,8 @@
 BAT - Bootstrap, AngularJS, Tornado
 
 BAT is a project to provide quick-start pages and examples for those who want to develop web application with these three projects glued.
-It breaks down the Bootstrap page with AngularJS integrated into a Tornado base template file. You can inherit the base template to develop your own pages.   
+
+It breaks down the Bootstrap page with AngularJS integrated into Tornado base template files. You can inherit the base template to develop your own pages.   
 
 How to run test:
 

@@ -27,6 +27,7 @@ class AjaxHandler(tornado.web.RequestHandler):
                 { "url" : "signin",        "name" : "Sign In" },
                 { "url" : "sticky-footer", "name" : "Sticky-Footer" },
                 { "url" : "sfn",           "name" : "Sticky-Footer Navbar" },
+                { "url" : "justified-nav", "name" : "Justified Navbar" },
             ]
         self.write(json_encode(data))
 
@@ -48,6 +49,11 @@ class SFNHandler(tornado.web.RequestHandler):
 class StickyFooterHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("sticky-footer.tpl",
+                    project_name=self.settings["globals"]["project_name"])
+
+class JustifiedNavHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("justified-nav.tpl",
                     project_name=self.settings["globals"]["project_name"])
 
 class FluidHandler(tornado.web.RequestHandler):
@@ -81,6 +87,7 @@ if __name__ == "__main__":
         (r"/hero", HeroHandler),
         (r"/sfn", SFNHandler),
         (r"/sticky-footer", StickyFooterHandler),
+        (r"/justified-nav", JustifiedNavHandler),
     ], **settings)
 
     application.listen(8888)
