@@ -23,6 +23,7 @@ class AjaxHandler(tornado.web.RequestHandler):
                   { "url" : "sticky-footer", "name" : "Sticky-Footer" },
                   { "url" : "sfn",           "name" : "Sticky-Footer Navbar" },
                   { "url" : "justified-nav", "name" : "Justified Navbar" },
+                  { "url" : "carousel",      "name" : "Carousel" },
                 ],
     }
 
@@ -57,6 +58,11 @@ class JustifiedNavHandler(tornado.web.RequestHandler):
         self.render("justified-nav.tpl",
                     project_name=self.settings["globals"]["project_name"])
 
+class CarouselHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("carousel.tpl",
+                    project_name=self.settings["globals"]["project_name"])
+
 class FluidHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("fluid.tpl",
@@ -89,6 +95,7 @@ if __name__ == "__main__":
         (r"/sfn", SFNHandler),
         (r"/sticky-footer", StickyFooterHandler),
         (r"/justified-nav", JustifiedNavHandler),
+        (r"/carousel", CarouselHandler),
     ], **settings)
 
     application.listen(8888)
