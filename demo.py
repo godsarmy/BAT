@@ -22,6 +22,7 @@ class AjaxHandler(tornado.web.RequestHandler):
                   { "url" : "justified-nav", "name" : "Justified Navbar" },
                   { "url" : "carousel",      "name" : "Carousel" },
                   { "url" : "market-narrow", "name" : "Market Narrow" },
+                  { "url" : "grid",          "name" : "Grid" },
                 ],
     }
 
@@ -73,6 +74,19 @@ class MarketNarrowHandler(tornado.web.RequestHandler):
         self.render("market-narrow.tpl",
                     project_name=self.settings["globals"]["project_name"])
 
+class GridHandler(tornado.web.RequestHandler):
+    data = [
+        {"name":"Chrome",  "creator":"Google", "engine":"Webkit", "license":"BSD"},
+        {"name":"Firefox", "creator":"Mozilla", "engine":"Gecko", "license":"MPL/GPL/LGPL"},
+        {"name":"Internet Explorer", "creator":"Microsoft", "engine":"Trident", "license":"Proprietary"},
+    ]
+
+    def get(self):
+        self.render("grid.tpl",
+                    project_name=self.settings["globals"]["project_name"],
+                    data=self.data,
+                   )
+
 class FluidHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("fluid.tpl",
@@ -107,6 +121,7 @@ if __name__ == "__main__":
         (r"/justified-nav", JustifiedNavHandler),
         (r"/carousel", CarouselHandler),
         (r"/market-narrow", MarketNarrowHandler),
+        (r"/grid", GridHandler),
     ], **settings)
 
     application.listen(8888)
