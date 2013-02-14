@@ -23,8 +23,22 @@ class AjaxHandler(tornado.web.RequestHandler):
                   { "url" : "justified-nav", "name" : "Justified Navbar" },
                   { "url" : "carousel",      "name" : "Carousel" },
                   { "url" : "market-narrow", "name" : "Market Narrow" },
-                  { "url" : "grid",          "name" : "Grid" },
-                ],
+                  { "url" : "static-grid",   "name" : "Static Grid" },
+                  { "url" : "ajax-grid",     "name" : "Ajax Grid" },
+        ],
+        "grid": {
+            "head": [
+                  {"key":"name", "desc":"Name"},
+                  {"key":"creator", "desc":"Creator"},
+                  {"key":"engine", "desc":"Engine"},
+                  {"key":"license", "desc":"Software License"},
+            ],
+            "body": [
+                  {"name":"Chrome",  "creator":"Google", "engine":"Webkit", "license":"BSD"},
+                  {"name":"Firefox", "creator":"Mozilla", "engine":"Gecko", "license":"MPL/GPL/LGPL"},
+                  {"name":"Internet Explorer", "creator":"Microsoft", "engine":"Trident", "license":"Proprietary"},
+            ]
+        }
     }
 
     def get(self):
@@ -75,19 +89,6 @@ class MarketNarrowHandler(tornado.web.RequestHandler):
         self.render("market-narrow.tpl",
                     project_name=self.settings["globals"]["project_name"])
 
-class GridHandler(tornado.web.RequestHandler):
-    data = [
-        {"name":"Chrome",  "creator":"Google", "engine":"Webkit", "license":"BSD"},
-        {"name":"Firefox", "creator":"Mozilla", "engine":"Gecko", "license":"MPL/GPL/LGPL"},
-        {"name":"Internet Explorer", "creator":"Microsoft", "engine":"Trident", "license":"Proprietary"},
-    ]
-
-    def get(self):
-        self.render("grid.tpl",
-                    project_name=self.settings["globals"]["project_name"],
-                    data=self.data,
-                   )
-
 class FluidHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("fluid.tpl",
@@ -102,4 +103,25 @@ class FluidHandler(tornado.web.RequestHandler):
                     username=self.get_argument("address")
                    )
 
+
+#static grid handler
+class StaticGridHandler(tornado.web.RequestHandler):
+    data = [
+        {"name":"Chrome",  "creator":"Google", "engine":"Webkit", "license":"BSD"},
+        {"name":"Firefox", "creator":"Mozilla", "engine":"Gecko", "license":"MPL/GPL/LGPL"},
+        {"name":"Internet Explorer", "creator":"Microsoft", "engine":"Trident", "license":"Proprietary"},
+    ]
+
+    def get(self):
+        self.render("grid.tpl",
+                    project_name=self.settings["globals"]["project_name"],
+                    data=self.data,
+                   )
+
+#ajax grid handler
+class AjaxGridHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("ajax-grid.tpl",
+                    project_name=self.settings["globals"]["project_name"],
+                   )
 

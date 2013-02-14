@@ -26,7 +26,8 @@ if __name__ == "__main__":
         (r"/justified-nav", JustifiedNavHandler),
         (r"/carousel", CarouselHandler),
         (r"/market-narrow", MarketNarrowHandler),
-        (r"/grid", GridHandler),
+        (r"/static-grid", StaticGridHandler),
+        (r"/ajax-grid", AjaxGridHandler),
     ], **settings)
 
     application.listen(8888)
