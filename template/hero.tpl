@@ -37,10 +37,10 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
+            <form class="navbar-form pull-right" action="/fluid" method="post">
+              <input class="span2" type="text" placeholder="Email" name="address">
+              <input class="span2" type="password" placeholder="Password" name="password">
+              <button type="submit" class="btn" type="submit">Sign in</button>
             </form>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,17 +62,17 @@
         <div class="span4">
           <h2>Heading</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p><a class="btn" href="ajax-grid">View details &raquo;</a></p>
         </div>
         <div class="span4">
           <h2>Heading</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p><a class="btn" href="ajax-grid">View details &raquo;</a></p>
        </div>
         <div class="span4">
           <h2>Heading</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p><a class="btn" href="ajax-grid">View details &raquo;</a></p>
         </div>
       </div>
 

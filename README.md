@@ -4,7 +4,7 @@ BAT is a project to provide quick-start pages and examples for those who want to
 
 It breaks down the Bootstrap page with AngularJS integrated into Tornado base template files. You can inherit the base template to develop your own pages.   
 
-How to run test:
+How to run code:
 
 * Install tornado 
 * Run command of "python demo.py"
