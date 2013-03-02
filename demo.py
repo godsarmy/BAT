@@ -28,6 +28,7 @@ if __name__ == "__main__":
         (r"/market-narrow", MarketNarrowHandler),
         (r"/static-grid", StaticGridHandler),
         (r"/ajax-grid", AjaxGridHandler),
+        (r"/angular-ui", AngularUIHandler),
     ], **settings)
 
     application.listen(8888)

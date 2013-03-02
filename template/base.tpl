@@ -10,8 +10,6 @@
     <!-- Le styles, please change the css url to local relative path -->
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    {% block head %}
-    {% end %}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -26,11 +24,15 @@
                                    <link rel="shortcut icon" href="static/favicon.ico">
 
     <!-- jquery js and js for angularJS from github -->
-    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+    <!--<script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="http://angular.github.com/angular-phonecat/step-0/app/lib/angular/angular.js"></script>
+
+    {% block head %}
+    {% end %}
   </head>
 
-  <body ng-app>
+  <body ng-app="myApp">
 
     {% block body %}
     {% end %}

@@ -25,6 +25,7 @@ class AjaxHandler(tornado.web.RequestHandler):
                   { "url" : "market-narrow", "name" : "Market Narrow" },
                   { "url" : "static-grid",   "name" : "Static Grid" },
                   { "url" : "ajax-grid",     "name" : "Ajax Grid" },
+                  { "url" : "angular-ui",    "name" : "Angular UI" },
         ],
         "grid": {
             "head": [
@@ -122,6 +123,13 @@ class StaticGridHandler(tornado.web.RequestHandler):
 class AjaxGridHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("ajax-grid.tpl",
+                    project_name=self.settings["globals"]["project_name"],
+                   )
+
+#angular UI handler
+class AngularUIHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("angularUI.tpl",
                     project_name=self.settings["globals"]["project_name"],
                    )
 
