@@ -36,12 +36,26 @@
     </div>
 
     <div class="container" ng-controller="AngularUICtrl">
-      <ng-form name="dateForm">
+      <div class="well">
+        <h2>Calender Picker</h2>
+        <p>Click the input box the pop the calender selector</p>
+        <p>Formatted Date: {{! date | date: 'mediumDate'}}</p>
         <p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>
-      </ng-form>
+      </div>
+      <div class="well">
+        <h2>Textbox with Key Event</h2>
+        <p>Press [Enter] in following textbox to trigger an alert box</p>
+        <textarea ui-keypress="{13:'keypressCallback($event)'}"></textarea>
+      </div>
+      <div class="well">
+        <h2>Textbox with E-Mail address validate</h2>
+        <p>Input string in the following textbox</p>
+        <input name="email" placeholder="email" type="email" required="" ng-model="email" class="ng-dirty ng-valid-required ng-valid ng-valid-email">
+      </div>
     </div> <!-- /container -->
 {% end %}
 
 {% block script %}
+    <script>var myApp = angular.module('{{moduleName}}', ['ui']);</script>
     <script src="static/js/angular-ui.js"></script>
 {% end %}
