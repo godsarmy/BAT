@@ -9,7 +9,9 @@ from tornado.escape import json_encode
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   )
 
 class AjaxHandler(tornado.web.RequestHandler):
     data = {
@@ -58,50 +60,66 @@ class AjaxHandler(tornado.web.RequestHandler):
 class SigninHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("signin.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   )
 
 class HeroHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("hero.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   )
 
 class SFNHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("sfn.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   )
 
 class StickyFooterHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("sticky-footer.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   ) 
 
 class JustifiedNavHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("justified-nav.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   ) 
 
 class CarouselHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("carousel.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   ) 
 
 class MarketNarrowHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("market-narrow.tpl",
-                    project_name=self.settings["globals"]["project_name"])
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName=""
+                   ) 
 
 class FluidHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("fluid.tpl",
                     project_name=self.settings["globals"]["project_name"],
-                    username="Unknown"
+                    username="Unknown",
+                    moduleName="",
                    )
 
     def post(self):
         #self.set_header("Content-Type", "text/plain")
         self.render("fluid.tpl",
                     project_name=self.settings["globals"]["project_name"],
-                    username=self.get_argument("address")
+                    username=self.get_argument("address"),
+                    moduleName="",
                    )
 
 
@@ -117,6 +135,7 @@ class StaticGridHandler(tornado.web.RequestHandler):
         self.render("grid.tpl",
                     project_name=self.settings["globals"]["project_name"],
                     data=self.data,
+                    moduleName="",
                    )
 
 #ajax grid handler
@@ -124,6 +143,7 @@ class AjaxGridHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("ajax-grid.tpl",
                     project_name=self.settings["globals"]["project_name"],
+                    moduleName="",
                    )
 
 #angular UI handler
@@ -131,5 +151,6 @@ class AngularUIHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("angularUI.tpl",
                     project_name=self.settings["globals"]["project_name"],
+                    moduleName="myApp",
                    )
 

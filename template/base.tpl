@@ -32,7 +32,7 @@
     {% end %}
   </head>
 
-  <body ng-app="myApp">
+  <body ng-app="{{moduleName}}">
 
     {% block body %}
     {% end %}
