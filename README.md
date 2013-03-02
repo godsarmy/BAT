@@ -20,4 +20,7 @@ http://angularjs.org/
 * Tornado
 http://www.tornadoweb.org/
 
+* AngularUI
+http://angular-ui.github.com/
+
 This project is in MIT license.
