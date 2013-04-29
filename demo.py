@@ -7,7 +7,18 @@ from tornado import web, ioloop, gen
 from handlers import *
 
 
-def load_app():
+def load_app(port, root):
+    settings = {
+        "static_path": path.join(root, "static"),
+        "template_path": path.join(root, "template"),
+        "globals": {
+            "project_name": "BAT -- Bootstrap, AngularJS, Tornado"
+        },
+        "flash_policy_port": 843,
+        "flash_policy_file": path.join(root, 'flashpolicy.xml'),
+        "socket_io_port": port,
+    }
+
     routers = [
         (r"/", MainHandler),
         (r"/ajax", AjaxHandler),
@@ -35,7 +46,7 @@ def load_app():
             QueryRouter.apply_routes(routers),
             **settings
         )
-        application.listen(8888)
+        #application.listen(8888)
         SocketServer(application)
     except ImportError:
         print "Failed to load module tornadio2"
@@ -49,15 +60,6 @@ def load_app():
 if __name__ == "__main__":
 
     root = path.dirname(__file__)
-    settings = {
-        "static_path": path.join(root, "static"),
-        "template_path": path.join(root, "template"),
-        "globals": {
-            "project_name": "BAT -- Bootstrap, AngularJS, Tornado"
-        },
-        "flash_policy_port": 843,
-        "flash_policy_file": path.join(root, 'flashpolicy.xml'),
-        "socket_io_port": 8001,
-    }
+    port = 8888
 
-    load_app()
+    load_app(port, root)

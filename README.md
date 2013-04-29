@@ -8,7 +8,8 @@ In the example of Socket.io, the backend python code is based on library of Torn
 
 How to run code:
 
-* Install tornado 
+* Install Tornado
+* Install Tornadio2 (optional)
 * Run command of "python demo.py"
 * Use browser to access localhost:8888 
 
