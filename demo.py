@@ -1,21 +1,14 @@
 #!/usr/bin/python
 
-import os
-import tornado.ioloop
-import tornado.web
+from os import path
+
+from tornado import web, ioloop, gen
 
 from handlers import *
 
-if __name__ == "__main__":
-    settings = {
-        "static_path": os.path.join(os.path.dirname(__file__), "static"),
-        "template_path": os.path.join(os.path.dirname(__file__), "template"),
-        "globals": { 
-                       "project_name":"BAT -- Bootstrap, AngularJS, Tornado"
-                   },
-    }
 
-    application = tornado.web.Application([
+def load_app():
+    routers = [
         (r"/", MainHandler),
         (r"/ajax", AjaxHandler),
         (r"/signin", SigninHandler),
@@ -29,7 +22,42 @@ if __name__ == "__main__":
         (r"/static-grid", StaticGridHandler),
         (r"/ajax-grid", AjaxGridHandler),
         (r"/angular-ui", AngularUIHandler),
-    ], **settings)
+        (r"/gen", SocketIOGenHandler)
+    ]
 
-    application.listen(8888)
-    tornado.ioloop.IOLoop.instance().start()
+    try:
+        from tornadio2 import TornadioRouter, SocketServer
+        from connections import QueryConnection
+        # Create tornadio router
+        QueryRouter = TornadioRouter(QueryConnection)
+        # Create socket application
+        application = web.Application(
+            QueryRouter.apply_routes(routers),
+            **settings
+        )
+        application.listen(8888)
+        SocketServer(application)
+    except ImportError:
+        print "Failed to load module tornadio2"
+        application = web.Application(
+            routers,
+            **settings
+        )
+        application.listen(8888)
+        tornado.ioloop.IOLoop.instance().start()
+
+if __name__ == "__main__":
+
+    root = path.dirname(__file__)
+    settings = {
+        "static_path": path.join(root, "static"),
+        "template_path": path.join(root, "template"),
+        "globals": {
+            "project_name": "BAT -- Bootstrap, AngularJS, Tornado"
+        },
+        "flash_policy_port": 843,
+        "flash_policy_file": path.join(root, 'flashpolicy.xml'),
+        "socket_io_port": 8001,
+    }
+
+    load_app()

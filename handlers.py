@@ -28,6 +28,7 @@ class AjaxHandler(tornado.web.RequestHandler):
                   { "url" : "static-grid",   "name" : "Static Grid" },
                   { "url" : "ajax-grid",     "name" : "Ajax Grid" },
                   { "url" : "angular-ui",    "name" : "Angular UI" },
+                  { "url" : "gen",           "name" : "Socket.io gen" },
         ],
         "grid": {
             "head": [
@@ -153,4 +154,13 @@ class AngularUIHandler(tornado.web.RequestHandler):
                     project_name=self.settings["globals"]["project_name"],
                     moduleName="myApp",
                    )
+
+class SocketIOGenHandler(tornado.web.RequestHandler):
+    """Regular HTTP handler to serve the chatroom page"""
+    def get(self):
+        self.render('gen.tpl',
+                    project_name=self.settings["globals"]["project_name"],
+                    moduleName="",
+                   ) 
+
 
