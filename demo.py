@@ -54,7 +54,7 @@ def load_app(port, root):
             routers,
             **settings
         )
-        application.listen(8888)
+        application.listen(port)
         tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
